@@ -1,4 +1,10 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+// next.config.mjs
 
-export default nextConfig;
+const nextConfig = {
+    images: {
+      domains: ['www.imsdb.com'],
+    },
+  };
+  
+  export default nextConfig;
+  
