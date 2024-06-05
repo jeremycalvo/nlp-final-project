@@ -4,3 +4,4 @@ movie_scripts.csv
 front-nlp/movie_scripts.csv
 preprocessed_scripts.pkl
 front-nlp/preprocessed_scripts.pkl
+nlp/
