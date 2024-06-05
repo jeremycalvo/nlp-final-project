@@ -10,4 +10,4 @@ except ImportError:
     subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'spacy'])
 
 # Download the model
-subprocess.check_call([sys.executable, '-m', 'spacy', 'download', 'en_core_web_lg'])
+subprocess.check_call([sys.executable, '-m', 'spacy', 'download', 'en_core_web_md'])
