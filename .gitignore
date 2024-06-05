@@ -1,3 +1,6 @@
 glove.6B.100d.txt
+front-nlp/glove.6B.100d.txt
 movie_scripts.csv
+front-nlp/movie_scripts.csv
 preprocessed_scripts.pkl
+front-nlp/preprocessed_scripts.pkl

@@ -5,6 +5,7 @@ from collections import Counter
 import os
 import pickle
 from multiprocessing import Pool
+import sys
 
 # Load spaCy model
 nlp = spacy.load('en_core_web_md')
@@ -99,7 +100,8 @@ def search_subject(subject):
     return top_movies
 
 def main():
-    subject = input("Enter the subject to search for: ")
+    # subject = input("Enter the subject to search for: ")
+    subject = sys.argv[1]
     matching_movies = search_subject(subject)
     if matching_movies:
         print("Top 10 movies related to '{}':".format(subject))
