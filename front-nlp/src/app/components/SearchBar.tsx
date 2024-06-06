@@ -96,51 +96,59 @@ export default function SearchBar() {
   }) : [];
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
-      <form onSubmit={handleSubmit} className="flex flex-col space-y-4 mb-8">
-        <input
-          className="border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search..."
-        />
-        <button
-          type="submit"
-          className="bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 transition-colors"
-        >
-          Search
-        </button>
-      </form>
+    <div className="mb-60 mx-auto p-4">
+      <div className="text-white">
+        <form onSubmit={handleSubmit} className="flex flex-col space-y-4 mb-8">
+          <div className="flex flex-col  md:flex-row md:space-x-4 md:items-center">
+            <input
+              className=" w-full h-15 border border-gray-300 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 backdrop-blur-sm bg-white/30 placeholder-white"
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search..."
+            />
+            <button
+              type="submit"
+              className=" backdrop-blur-sm bg-white/30 h-15 bg-blue-500 text-white p-3 rounded-md hover:bg-cyan-600 transition-colors"
+            >
+              Search
+            </button>
+          </div>
+    </form>
+      </div>
 
-      {loading && <p className="text-center mt-4">Loading...</p>}
+      { loading && <p className="text-center mt-4 text-white ">Loading...</p> }
 
-      {result && !loading && (
-        <div className="mt-4">
+  {
+    result && !loading && (
+      <div className="mt-4">
+        <div className="p-2 text-sm text-white mb-4 rounded border-2 backdrop-blur-sm bg-white/30">
           <h2 className="text-lg font-semibold mb-4">Result:</h2>
-          <div className="text-sm text-gray-700 mb-4">
-            <p><strong>Word:</strong> {result.word}</p>
+          <div className="text-sm mb-4">
+            <p><strong>Word(s):</strong> {result.word}</p>
             <p><strong>Expanded Keywords:</strong> {result.expandedKeywords.join(', ')}</p>
             <p><strong>Number of Scripts Loaded:</strong> {result.numberOfScripts}</p>
           </div>
-          <h3 className="font-semibold mb-4">Top 10 Movies:</h3>
-          <div className="flex flex-wrap gap-4">
-            {matchedMovies.map((movie, index) => (
-              movie && (
-                <MovieCard
-                  key={index}
-                  title={movie.title}
-                  imageUrl={movie.imageUrl}
-                  rating={movie.rating}
-                  releaseDate={movie.releaseDate}
-                  genre={movie.genre}
-                  score={result.topMovies.find(topMovie => topMovie.title === movie.title).score}
-                />
-              )
-            ))}
-          </div>
         </div>
-      )}
-    </div>
+        <h3 className="font-semibold mb-4 text-white">Top 10 Movies:</h3>
+        <div className="flex flex-wrap gap-4">
+          {matchedMovies.map((movie, index) => (
+            movie && (
+              <MovieCard
+                key={index}
+                title={movie.title}
+                imageUrl={movie.imageUrl}
+                rating={movie.rating}
+                releaseDate={movie.releaseDate}
+                genre={movie.genre}
+                score={result.topMovies.find(topMovie => topMovie.title === movie.title).score}
+              />
+            )
+          ))}
+        </div>
+      </div>
+    )
+  }
+    </div >
   );
 }

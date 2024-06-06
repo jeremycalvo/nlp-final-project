@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface MovieCardProps {
@@ -15,7 +14,7 @@ export function MovieCard(props: MovieCardProps) {
   const { title, imageUrl, rating, releaseDate, genre, score } = props;
 
   return (
-    <Card className="w-[250px] bg-white shadow-md rounded-lg overflow-hidden">
+    <Card className="w-[250px] bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-500 hover:scale-105 hover:shadow-2xl">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>Score: {score}</CardDescription>
